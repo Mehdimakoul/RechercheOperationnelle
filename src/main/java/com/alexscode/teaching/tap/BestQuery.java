@@ -3,17 +3,17 @@ package com.alexscode.teaching.tap;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestHSimple implements TAPSolver {
+public class BestQuery implements TAPSolver {
     @Override
     public List<Integer> solve(Instance ist) {
         List<Integer> solution = new ArrayList<>();
         Objectives obj = new Objectives(ist);
 
         // Ajouter la requête qui maximise l'interêt
-        int bestQuery = findMaxInterestQuery(ist, solution);
-        while (bestQuery != -1 && obj.distance(solution) <= ist.getMaxDistance() && obj.time(solution) <= ist.getTimeBudget()) {
-            solution.add(bestQuery);
-            bestQuery = findMaxInterestQuery(ist, solution);
+        int BQ = findMaxInterestQuery(ist, solution);
+        while (BQ != -1 && obj.distance(solution) <= ist.getMaxDistance() && obj.time(solution) <= ist.getTimeBudget()) {
+            solution.add(BQ);
+            BQ = findMaxInterestQuery(ist, solution);
         }
 
         // Retirer la dernière requête si elle dépasse les contraintes
@@ -25,16 +25,16 @@ public class TestHSimple implements TAPSolver {
     }
 
     private int findMaxInterestQuery(Instance ist, List<Integer> solution) {
-        int bestQuery = -1;
+        int BQ = -1;
         double maxInterest = 0;
 
         for (int i = 0; i < ist.getSize(); i++) {
             if (!solution.contains(i) && ist.getInterest()[i] > maxInterest) {
                 maxInterest = ist.getInterest()[i];
-                bestQuery = i;
+                BQ = i;
             }
         }
 
-        return bestQuery;
+        return BQ;
     }
 }

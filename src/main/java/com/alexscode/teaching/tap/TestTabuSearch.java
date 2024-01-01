@@ -1,7 +1,4 @@
 package com.alexscode.teaching.tap;
-import com.alexscode.teaching.tap.Instance;
-import com.alexscode.teaching.tap.Objectives;
-import com.alexscode.teaching.tap.TAPSolver;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,7 +14,7 @@ public class TestTabuSearch implements TAPSolver {
     public List<Integer> solve(Instance ist) {
         // Initialisation des objectifs et des solutions
         Objectives obj = new Objectives(ist);
-        List<Integer> currentSolution = new ArrayList<>(new TestHSimple().solve(ist));
+        List<Integer> currentSolution = new ArrayList<>(new BestQuery().solve(ist));
         List<Integer> bestSolution = new ArrayList<>(currentSolution);
         List<Integer> tabuList = new ArrayList<>();
 

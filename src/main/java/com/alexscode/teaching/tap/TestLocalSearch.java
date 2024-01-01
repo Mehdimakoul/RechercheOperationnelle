@@ -1,27 +1,25 @@
 package com.alexscode.teaching.tap;
-import com.alexscode.teaching.tap.Instance;
-import com.alexscode.teaching.tap.Objectives;
-import com.alexscode.teaching.tap.TAPSolver;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class LocalSearch implements TAPSolver {
+public class TestLocalSearch implements TAPSolver {
 
-    // Définition de la constante pour le nombre maximal d'itérations
+    // nombre maximal d'itérations
     private static final int MAX_ITERATIONS = 1000;
 
     @Override
     public List<Integer> solve(Instance ist) {
-        // Initialisation des objectifs et des solutions
+
         Objectives obj = new Objectives(ist);
-        List<Integer> currentSolution = new ArrayList<>(new TestHSimple().solve(ist));
+        List<Integer> currentSolution = new ArrayList<>(new BestQuery().solve(ist));
         List<Integer> bestSolution = new ArrayList<>(currentSolution);
 
-        // Boucle principale de l'algorithme
         for (int iteration = 0; iteration < MAX_ITERATIONS; iteration++) {
-            // Exploration du voisinage
+            
+            // exploration du voisinage
             List<Integer> neighborSolution = exploreNeighborhood(currentSolution);
 
             // Calcul des longueurs des solutions

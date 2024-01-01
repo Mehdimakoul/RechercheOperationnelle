@@ -1,6 +1,5 @@
 package com.alexscode.teaching.tap;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class NearestNeighbor implements TAPSolver {
