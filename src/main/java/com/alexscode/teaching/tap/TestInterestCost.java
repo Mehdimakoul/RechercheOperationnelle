@@ -1,8 +1,4 @@
 package com.alexscode.teaching.tap;
-
-import com.alexscode.teaching.tap.Instance;
-import com.alexscode.teaching.tap.Objectives;
-import com.alexscode.teaching.tap.TAPSolver;
 import com.alexscode.teaching.utilities.Element;
 
 import java.util.ArrayList;
@@ -10,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class TestCostImportance implements TAPSolver {
+public class TestInterestCost implements TAPSolver {
 
     @Override
     public List<Integer> solve(Instance ist) {
