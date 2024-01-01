@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class SimulatedAnnealing implements TAPSolver {
+public class TestSimulatedAnnealing implements TAPSolver {
 
     private static final double INITIAL_TEMPERATURE = 1000.0;
     private static final double COOLING_RATE = 0.95;
