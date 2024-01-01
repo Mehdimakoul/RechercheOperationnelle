@@ -6,7 +6,7 @@ import java.util.List;
 
 public class LocalSearchRandom implements TAPSolver {
 
-    private static final int MAX_ITERATIONS = 18000;
+    private static final int MAX_ITERATIONS = 2000;
 
     @Override
     public List<Integer> solve(Instance ist) {
