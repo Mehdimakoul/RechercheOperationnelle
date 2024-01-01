@@ -48,17 +48,14 @@ public class TestSimulatedAnnealing implements TAPSolver {
             allQueries.add(i);
         }
 
-        // Shuffle the list to create a random solution
         Collections.shuffle(allQueries);
 
         Objectives obj = new Objectives(ist);
 
-        // Add queries to the solution until constraints are violated
         for (int query : allQueries) {
             randomSolution.add(query);
 
             if (!isValidSolution(randomSolution, ist)) {
-                // Remove the last query if constraints are violated
                 randomSolution.remove(randomSolution.size() - 1);
                 break;
             }
@@ -75,11 +72,9 @@ public class TestSimulatedAnnealing implements TAPSolver {
     private List<Integer> exploreNeighborhood(List<Integer> solution) {
         List<Integer> neighborSolution = new ArrayList<>(solution);
 
-        // Improved neighborhood exploration
         int index1 = (int) (Math.random() * solution.size());
         int index2 = (int) (Math.random() * solution.size());
 
-        // Ensure distinct indices for swap
         while (index1 == index2) {
             index2 = (int) (Math.random() * solution.size());
         }

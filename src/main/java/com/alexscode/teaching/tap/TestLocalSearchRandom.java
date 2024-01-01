@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class LocalSearchRandom implements TAPSolver {
+public class TestLocalSearchRandom implements TAPSolver {
 
     private static final int MAX_ITERATIONS = 2000;
 

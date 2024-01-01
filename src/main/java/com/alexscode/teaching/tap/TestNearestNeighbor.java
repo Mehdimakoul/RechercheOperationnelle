@@ -2,7 +2,7 @@ package com.alexscode.teaching.tap;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NearestNeighbor implements TAPSolver {
+public class TestNearestNeighbor implements TAPSolver {
 
     @Override
     public List<Integer> solve(Instance ist) {
