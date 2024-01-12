@@ -28,7 +28,7 @@ public class TestNearestNeighbor implements TAPSolver {
 
         while (!pasvisitenodes.isEmpty() && (obj.time(solution) < ist.timeBudget && obj.distance(solution) < ist.maxDistance)) {
 
-            int nearestNode = findNearestNode(currentNode, pasvisitenodes, ist);
+            int nearestNode = searchNearestNode(currentNode, pasvisitenodes, ist);
             
             solution.add(nearestNode);
             pasvisitenodes.remove(Integer.valueOf(nearestNode));
@@ -40,7 +40,7 @@ public class TestNearestNeighbor implements TAPSolver {
     }
 
     // Recherche du noeud le plus proche parmi les nœuds non visités
-    private int findNearestNode(int currentNode, List<Integer> pasvisitenodes, Instance ist) {
+    private int searchNearestNode(int currentNode, List<Integer> pasvisitenodes, Instance ist) {
         int nearestNode = -1;
         double nearestDistance = Double.MAX_VALUE;
 

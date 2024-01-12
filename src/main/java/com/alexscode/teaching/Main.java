@@ -24,7 +24,7 @@ public class Main {
 
         Objectives obj = new Objectives(f4_1_big);
 
-        TAPSolver solver = new TestInterestCost();
+        TAPSolver solver = new BestQuery();
         List<Integer> solution = solver.solve(f4_1_big);
 
         System.out.println("Interet: " + obj.interest(solution));
