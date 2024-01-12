@@ -9,17 +9,14 @@ public class BestQuery implements TAPSolver {
         List<Integer> solution = new ArrayList<>();
         Objectives obj = new Objectives(ist);
 
-        // Ajouter la requête qui maximise l'interêt
         int BQ = findMaxInterestQuery(ist, solution);
         while (BQ != -1 && obj.distance(solution) <= ist.getMaxDistance() && obj.time(solution) <= ist.getTimeBudget()) {
             solution.add(BQ);
             BQ = findMaxInterestQuery(ist, solution);
         }
-
-        // Retirer la dernière requête si elle dépasse les contraintes
         if (obj.distance(solution) > ist.getMaxDistance() || obj.time(solution) > ist.getTimeBudget()) {
             solution.remove(solution.size() - 1);
-        }
+            }
 
         return solution;
     }

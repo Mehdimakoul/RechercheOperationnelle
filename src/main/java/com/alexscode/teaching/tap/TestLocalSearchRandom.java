@@ -18,13 +18,11 @@ public class TestLocalSearchRandom implements TAPSolver {
 
             double neighborLength = obj.time(neighborSolution);
 
-            if (neighborLength < obj.time(bestSolution) && 
-                obj.distance(neighborSolution) <= ist.getMaxDistance() && 
-                obj.time(neighborSolution) <= ist.getTimeBudget()) {
+            if (neighborLength < obj.time(bestSolution) && obj.distance(neighborSolution) <= ist.getMaxDistance() && obj.time(neighborSolution) <= ist.getTimeBudget()) {
+               
                 bestSolution = new ArrayList<>(neighborSolution);
             }
         }
-
         return bestSolution;
     }
 
@@ -35,18 +33,18 @@ public class TestLocalSearchRandom implements TAPSolver {
         for (int i = 0; i < ist.getSize(); i++) {
             allQueries.add(i);
         }
-
-        // Shuffle the list to create a random solution
+        // solution random
         Collections.shuffle(allQueries);
 
         Objectives obj = new Objectives(ist);
 
-        // Add queries to the solution until constraints are violated
+        // ajout des requetes en respectant les contraintes
         for (int query : allQueries) {
             randomSolution.add(query);
 
             if (obj.distance(randomSolution) > ist.getMaxDistance() || obj.time(randomSolution) > ist.getTimeBudget()) {
-                // Remove the last query if constraints are violated
+               
+
                 randomSolution.remove(randomSolution.size() - 1);
                 break;
             }
@@ -57,17 +55,21 @@ public class TestLocalSearchRandom implements TAPSolver {
 
     private List<Integer> exploreNeighborhood(List<Integer> solution, Instance ist) {
         List<Integer> neighborSolution = new ArrayList<>(solution);
-
-        // Improved neighborhood exploration
         int index1 = (int) (Math.random() * solution.size());
+
         int index2 = (int) (Math.random() * solution.size());
 
-        // Ensure distinct indices for swap
+
+
         while (index1 == index2) {
             index2 = (int) (Math.random() * solution.size());
         }
-
         Collections.swap(neighborSolution, index1, index2);
+
+
+
+
+
 
         return neighborSolution;
     }
